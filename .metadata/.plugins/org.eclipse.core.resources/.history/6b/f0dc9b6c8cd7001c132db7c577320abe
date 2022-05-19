@@ -1,0 +1,62 @@
+package com.game;
+
+import java.io.IOException;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Guessword {
+
+	
+	private String[] words = { "book", "pen", "student", "wow", "english", "computer" }; 
+	private String censoredWord = "";
+	private String word = "";
+	
+	public static void main(String[] args) {
+		
+		try (Scanner scanner = new Scanner(System.in)) {
+			Guessword guess = new Guessword();
+			char letterGuessed;
+			String currentWord = guess.randomizeWord();
+			while (true) { // handles the game structure and guessing
+				System.out.println("Guess!");
+
+				letterGuessed = scanner.nextLine().charAt(0); // puts input into variable
+				// checks if user got the word
+
+				if (guess.showProgress(letterGuessed).equals(currentWord)) {
+					System.out.println("Hooray! Resetting...");
+					guess = new Guessword();
+					currentWord = guess.randomizeWord();
+				}
+				// guessLetter.close();
+			}
+		}
+	
+
+	}
+
+	public String randomizeWord() { // randomizes word
+		Random rand = new Random();
+		int randNum = rand.nextInt(words.length);
+		word = words[randNum];
+		for (int i = 0; i < word.length(); i++) { // makes a word filled with blank spots the same length as the word
+													// chosen
+			censoredWord = censoredWord + "*";
+		}
+		return word;
+	}
+
+	public String showProgress(char letter) { // uncensors letters
+		char[] wordArray = word.toCharArray(); // sets the word to an array so it can loop though it
+		char[] censoredWordArray = censoredWord.toCharArray();
+		for (int i = 0; i < wordArray.length; i++) {
+			char ichar = wordArray[i];
+			if (letter == ichar) {
+				censoredWordArray[i] = ichar; // fills in censored letter
+			}
+		}
+		censoredWord = String.valueOf(censoredWordArray);
+		System.out.println(censoredWord);
+		return censoredWord;
+	}
+}

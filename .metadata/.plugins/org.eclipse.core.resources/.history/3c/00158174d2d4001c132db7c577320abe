@@ -1,0 +1,10 @@
+package com.camel.micro.camelmicroservicesb;
+
+import java.math.BigDecimal;
+
+public class CurrencyExchange {
+	Long id;
+	String from;
+	String to;
+	BigDecimal conversionMultiple;
+}

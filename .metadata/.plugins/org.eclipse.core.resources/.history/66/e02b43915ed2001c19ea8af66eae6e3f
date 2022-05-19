@@ -1,0 +1,50 @@
+package com.microservice.currencyconversionservice;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Stream;
+import static java.util.stream.Collectors.toList;
+public class Solution {
+
+    public static void main(String[] args) throws IOException {
+    	List<Integer> list = new ArrayList<Integer>();
+    	list.add(3);
+    	list.add(4);
+    	System.out.println(getIndices(list));
+    }
+    
+    
+    public static long arrayManipulation(int n, List<List<Integer>> queries) {
+        // Write your code here
+            List<Long> arr = new ArrayList<Long>(n);
+            
+            for (List<Integer> list : queries) {
+                List<Integer> indices = getIndices(list);
+                for (Integer index : indices) {
+                    arr.add(index-1, arr.get(index-1)+list.get(2));
+                }
+                
+            }
+            Collections.reverse(arr);
+            return arr.get(0);
+        }
+        
+        public static List<Integer> getIndices(List<Integer> list){
+            List<Integer> indices = new ArrayList<Integer>();
+            indices.add(list.get(0));
+            int index = 0;
+            while(indices.get(index) < list.get(1)){
+                indices.add(indices.get(index)+1);
+                index ++;
+            }
+            return indices;
+        }
+
+    }
+}

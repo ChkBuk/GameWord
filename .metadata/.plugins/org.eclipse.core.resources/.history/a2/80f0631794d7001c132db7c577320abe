@@ -1,0 +1,62 @@
+package com.game;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Guessword {
+
+	private String[] wordList = { "book", "pen", "student", "wow", "english", "computer" };
+	private String constructedWord = "";
+	private String actualWord = "";
+
+	public static void main(String[] args) {
+		Guessword guess = new Guessword();
+		try (Scanner scanner = new Scanner(System.in)) {
+			char letterGuessed;
+			String randomWord = guess.getRandomWord();
+			while (true) {
+				System.out.println("Guess!");
+
+				letterGuessed = scanner.nextLine().charAt(0);
+				if (guess.constructWord(letterGuessed).equals(randomWord)) {
+					System.out.println("");
+					System.out.println("**********************************");
+					System.out.println("  Congratulations..!");
+					System.out.println("  Continue..");
+					System.out.println("**********************************");
+					System.out.println("");
+					guess = new Guessword();
+					randomWord = guess.getRandomWord();
+				}
+
+			}
+		}
+
+	}
+
+	public String constructWord(char letter) {
+		char[] actualWordArray = actualWord.toCharArray();
+		char[] constructedWordArray = constructedWord.toCharArray();
+		for (int i = 0; i < actualWordArray.length; i++) {
+			char c = actualWordArray[i];
+			if (letter == c) {
+				constructedWordArray[i] = c;
+			}
+		}
+		
+		constructedWord = String.valueOf(constructedWordArray);
+		System.out.println(constructedWord);
+		return constructedWord;
+	}
+
+	public String getRandomWord() {
+		Random rand = new Random();
+		int randNum = rand.nextInt(wordList.length);
+		actualWord = wordList[randNum];
+		for (int i = 0; i < actualWord.length(); i++) {
+			constructedWord = constructedWord + "*";
+		}
+		return actualWord;
+	}
+
+}

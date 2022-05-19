@@ -1,0 +1,23 @@
+package com.camel.micro.camelmicroservicesa;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class Test_2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static void miniMaxSum(List<Integer> arr) {
+	    // Write your code here
+		int[] convertToArr = {};
+		int i=0;
+		for (int integer: arr) {
+			convertToArr[i] = integer;
+		}
+		Arrays.sort(convertToArr);
+	}
+
+}

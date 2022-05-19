@@ -1,0 +1,23 @@
+1652973488525	Delete element
+1652973503555	Infer generic type arguments
+1652973519245	Infer generic type arguments
+1652973562458	Move compilation unit
+1652973890642	Rename local variable 'word'
+1652976026649	Rename local variable 'currentWord'
+1652976279596	Rename local variable 'wordPicked'
+1652976376118	Rename field 'word'
+1652977070615	Rename method 'randomizeWord'
+1652977241230	Rename field 'censoredWord'
+1652977280941	Rename local variable 'censoredWordArray'
+1652977602784	Rename method 'showProgress'
+1652977803837	Rename local variable 'wordArray'
+1652977824116	Rename local variable 'ichar'
+1652980306633	Rename field 'maxLives'
+1652980477897	Rename compilation unit 'Guessword.java'
+1652980491309	Rename local variable 'guess'
+1652980755417	Rename field 'actualWord'
+1652982074732	Extract local variable 'constructWord'
+1652986845043	Rename local variable 'list'
+1652986902824	Rename local variable 'letterGuessed'
+1652986928057	Rename local variable 'letterGuinputLetteressed'
+1652986954634	Rename local variable 'letterToBeGuess'

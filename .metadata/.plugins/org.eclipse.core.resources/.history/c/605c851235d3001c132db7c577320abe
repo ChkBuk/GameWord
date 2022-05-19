@@ -1,0 +1,22 @@
+package com.camel.micro.camelmicroservicesa;
+
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Test {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		BigDecimal val  = BigDecimal.valueOf(1)/6;
+		DecimalFormat df = new DecimalFormat();
+		df.setMaximumFractionDigits(2);
+		System.out.println(df.format(val));
+		
+	}
+
+}

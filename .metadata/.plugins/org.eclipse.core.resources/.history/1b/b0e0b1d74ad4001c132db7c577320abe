@@ -1,0 +1,66 @@
+package com.camel.micro.camelmicroservicesa;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Test_2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List<Integer> list = new ArrayList<Integer>();
+//		list.add(-4);list.add(3);
+//		list.add(-9);list.add(4);
+//		list.add(0);list.add(1);
+		list.add(1);list.add(2);
+		list.add(3);list.add(1);
+		list.add(2);list.add(3);list.add(4);
+		//miniMaxSum(list);
+		//System.out.println(timeConversion("05:05:45PM"));
+		System.out.println(lonelyinteger(list));
+	}
+	
+	public static void miniMaxSum(List<Integer> arr) {
+	    // Write your code here
+		int[] convertToArr = new int[6];
+		int i=0;
+		for (int integer: arr) {
+			convertToArr [i]= integer;
+			i++;
+		}
+		Arrays.sort(convertToArr);
+		//System.out.print(convertToArr[0]);System.out.print(convertToArr[1]);System.out.print(convertToArr[2]);
+		int length = convertToArr.length-1;
+		int min = convertToArr[1]+convertToArr[2]+convertToArr[3]+convertToArr[4];
+		int max = convertToArr[length]+convertToArr[length-1]+convertToArr[length-2]+convertToArr[length-3];
+		System.out.println(min +" "+max);
+	
+	}
+	  public static String timeConversion(String s) {
+		  int newVal =  (("12").equals(s.substring(0,2)))? (Integer.parseInt(s.substring(0,2))) : (Integer.parseInt(s.substring(0,2))+12);
+		  if(("AM").equals(s.substring(8,10))){
+			  return (("12").equals(s.substring(0,2)))? "00:"+s.substring(3,8): s.substring(0,8);
+		  }else {
+			  return Integer.toString(newVal)+""+s.substring(2,8);
+		  }
+			  
+	  }
+	  
+	  public static int lonelyinteger(List<Integer> a) {
+		   Set<Integer> set =new HashSet<Integer>();
+		   List<Integer> temp = new ArrayList<Integer> ();
+		   
+		   for (Integer integer : a) {
+			   if(!set.add(integer)) {
+				   temp.add(integer);
+			   }
+		   }
+		   
+		   set.removeAll(temp);
+		   Integer[] i = (Integer[]) set.toArray();
+		   return i[0];
+	  }
+
+}

@@ -1,0 +1,21 @@
+package com.camel.micro.camelmicroservicesa;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Test {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("TTT");
+		List<Integer> arr = new ArrayList<Integer>();
+		arr.add(2);
+		arr.add(3);
+		arr.add(1);
+	    arr.toArray();
+	}
+
+}

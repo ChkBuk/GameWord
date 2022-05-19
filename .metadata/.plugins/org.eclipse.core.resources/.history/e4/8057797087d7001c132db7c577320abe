@@ -1,0 +1,37 @@
+package com.game;
+import java.util.Scanner; 
+import java.util.Random;
+public class Guessword {
+
+	public static void main(String[] args) {
+		private String censoredWord = "";
+		  private String word = "";
+		  private String[] words = {"cow", "giraffe", "deer", "cat", "dog",   "cheese"}; ////words
+
+		  public String randomizeWord() { //randomizes word
+		      Random rand = new Random();
+		      int randNum = rand.nextInt(words.length);
+		      word = words[randNum];
+		      for (int i = 0; i < word.length(); i++) { //makes a word filled with blank spots the same length as the word chosen
+		        censoredWord = censoredWord + "_";
+		      }
+		      return word;
+		  }
+
+		  public String showProgress(char letter) { //uncensors letters
+		    char[] wordArray = word.toCharArray(); //sets the word to an array so it can loop though it
+		    char[] censoredWordArray = censoredWord.toCharArray();
+		    for (int i = 0; i < wordArray.length; i++) {
+		      char ichar = wordArray[i];
+		      if (letter == ichar) { 
+		        censoredWordArray[i] = ichar; //fills in censored letter
+		      }
+		    }
+		    censoredWord = String.valueOf(censoredWordArray);
+		    System.out.println(censoredWord);
+		    return censoredWord;
+		  }
+
+	}
+
+}

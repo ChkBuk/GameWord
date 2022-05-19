@@ -1,0 +1,5 @@
+package com.camel.micro.camelmicroservicesb;
+
+public class CurrencyExchange {
+
+}

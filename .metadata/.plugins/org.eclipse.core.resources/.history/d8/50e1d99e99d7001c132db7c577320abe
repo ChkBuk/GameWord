@@ -1,0 +1,73 @@
+package com.game;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Game {
+
+	private String[] wordList = { "book", "pen", "student", "wow", "english", "computer" };
+	private String constructedWord = "";
+	private String randomWord = "";
+	private final static int MAXLIVES =10;
+	
+	public static void main(String[] args) {
+		Game game = new Game();
+		int lives = MAXLIVES;
+		try (Scanner scanner = new Scanner(System.in)) {
+			char letterGuessed;
+			String randomWord = game.getRandomWord();
+			while (lives > 0) {
+				System.out.println("Guess the word!. You have " + lives + " lives left.");
+
+				letterGuessed = scanner.nextLine().charAt(0);
+				if (game.constructWord(letterGuessed).equals(randomWord)) {
+					System.out.println("");
+					System.out.println("**********************************");
+					System.out.println("  Congratulations..!");
+					System.out.println("  Continue..");
+					System.out.println("**********************************");
+					System.out.println("");
+					game = new Game();
+					randomWord = game.getRandomWord();
+					lives =MAXLIVES;
+				} else {
+					lives--;
+				}
+
+			}
+			System.out.println("");
+			System.out.println("**********************************");
+			System.out.println("  Sorry..! The Game is over");
+			System.out.println("  The Computer won the game...");
+			System.out.println("**********************************");
+			System.out.println("");
+		}
+
+	}
+
+	public String constructWord(char letter) {
+		char[] randomWordArray = randomWord.toCharArray();
+		char[] constructedWordArray = constructedWord.toCharArray();
+		for (int i = 0; i < randomWordArray.length; i++) {
+			char c = randomWordArray[i];
+			if (letter == c) {
+				constructedWordArray[i] = c;
+			}
+		}
+
+		constructedWord = String.valueOf(constructedWordArray);
+		System.out.println(constructedWord);
+		return constructedWord;
+	}
+
+	public String getRandomWord() {
+		Random rand = new Random();
+		int randNum = rand.nextInt(wordList.length);
+		randomWord = wordList[randNum];
+		for (int i = 0; i < randomWord.length(); i++) {
+			constructedWord = constructedWord + "*";
+		}
+		return randomWord;
+	}
+
+}

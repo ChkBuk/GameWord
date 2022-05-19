@@ -1,0 +1,10 @@
+package com.game;
+
+public class Guessword {
+
+	public static void main(String[] args) {
+		System.out.println("ABC");
+
+	}
+
+}
